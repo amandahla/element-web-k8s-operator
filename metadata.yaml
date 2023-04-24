@@ -1,0 +1,27 @@
+# Copyright 2023 Canonical Ltd.
+# See LICENSE file for licensing details.
+
+name: element-web-k8s
+display-name: element-web
+summary: Turn any element-web application into a charm.
+description: element-web charm can turn any element-web application into a charm.
+docs: ""
+issues: https://github.com/canonical/element-web-k8s-operator/issues
+source: https://github.com/canonical/element-web-k8s-operator
+maintainers:
+  - launchpad.net/~canonical-is-devops
+
+containers:
+  element-web:
+    resource: element-web-image
+
+resources:
+  element-web-image:
+    type: oci-image
+    description: element-web image
+    upstream-source: vectorim/element-web
+
+requires:
+  ingress:
+    interface: ingress
+    limit: 1
